@@ -47,76 +47,21 @@ spec:
           path: dbPrototype
           x-descriptors:
              - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Configuration information for Black Duck to use an external PostgreSQL database.
-          displayName: ExternalPostgres
-          path: externalPostgres
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Black Duck persistent volume claim storage class.
-          displayName: PVCStorageClass
-          path: pvcStorageClass
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
         - description: Verifies that all Black Duck containers are running properly and restarts them if they fail.
           displayName: LivenessProbes
           path: livenessProbes
           x-descriptors:
              - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
-        - description: Helps to determine the PostgreSQL claim size.
-          displayName: ScanType
-          path: scanType
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
         - description: If this Black Duck instance uses a persistent volume claim.
           displayName: PersistentStorage
           path: persistentStorage
           x-descriptors:
              - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
-        - description: Information about the Persistent volume claim, name and size.
-          displayName: PVC
-          path: pvc
-          x-descriptors:
-             - '??'
-        - description: Certificate type: default or manual.
-          displayName: CertificateName
-          path: certificateName
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: The base64 encoded X.509 certificate information for your custom certificate.
-          displayName: Certificate
-          path: certificate
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: The base64 encoded private key of your custom certificate.
-          displayName: CertificateKey
-          path: certificateKey
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Proxy root CA used if your proxy server re-signs the certificates with its own CA.
-          displayName: ProxyCertificate
-          path: proxyCertificate
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Custom certificate-authority certificate for Black Duck API client authentication.
-          displayName: AuthCustomCA
-          path: authCustomCA
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
         - description: Type of Black Duck instance, which indicates relationship with OpsSight Connector.
           displayName: Type
           path: type
           x-descriptors:
              - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Desired state of Black Duck containers.
-          displayName: DesiredState
-          path: desiredState
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Environment variables for the Black Duck instance.
-          displayName: Environs
-          path: environs
-          x-descriptors:
-             - '?? - array of values'
         - description: Names and versions of the Black Duck container images.
           displayName: ImageRegistries
           path: imageRegistries
@@ -143,16 +88,6 @@ spec:
             path: state
             x-descriptors:
               - 'urn:alm:descriptor:com.tectonic.ui:podStatuses'
-         - description: Persistent volume claim name.
-            displayName: PVCVolumeName
-            path: pvcVolumeName
-            x-descriptors:
-              - 'urn:alm:descriptor:text'
-         - description: Fully qualified domain name.
-            displayName: Fqdn
-            path: fqdn
-            x-descriptors:
-              - 'urn:alm:descriptor:text'
          - description: Error Message.
             displayName: ErrorMessage
             path: errorMessage
@@ -193,57 +128,7 @@ spec:
            path: namespace
            x-descriptors:
               - 'urn:alm:descriptor:com.tectonic.ui:namespaceSelector'
-        - description: Manages when and what to scan, and provides a REST API for perceivers and scanners to communicate.
-          displayName: Perceptor
-          path: perceptor
-          x-descriptors:
-             - '?? - object'
-        - description: Responsible for scanning container images into Black Duck.
-          displayName: ScannerPod
-          path: scannerPod
-          x-descriptors:
-             - '?? - object'
-        - description: Manages events and writes information into Kubernetes objects based on scan results.
-          displayName: Perceiver
-          path: perceiver
-          x-descriptors:
-             - '?? - object'
-        - description: Name of the OpsSight config map. Default is opssight.
-          displayName: ConfigMapName
-          path: configMapName
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Name of the secret used in OpsSight to connect to the Black Duck instance.
-          displayName: SecretName
-          path: secretName
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:label'
-        - description: Current OpsSight pod state.
-          displayName: State
-          path: state
-          x-descriptors:
-             - '??'
-        - description: Prometheus implementation information.
-          displayName: Prometheus
-          path: prometheus
-          x-descriptors:
-             - '?? - object'
-        - description: Enable Skyfire automated perceptor testing.
-          displayName: EnableSkyfire
-          path: enableSkyfire
-          x-descriptors:
-             - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
-        - description: Skyfire implementation information.
-          displayName: Skyfire
-          path: skyfire
-          x-descriptors:
-             - '?? - object'
-        - description: Blackduck implementation information.
-          displayName: Blackduck
-          path: blackduck
-          x-descriptors:
-             - '?? - object'
-        - description: Enable Prometheus metrics.
+        - description: Enable Prometheus metrics. Default is true.
           displayName: EnableMetrics
           path: enableMetrics
           x-descriptors:
